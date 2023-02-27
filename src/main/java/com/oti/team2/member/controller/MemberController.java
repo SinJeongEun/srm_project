@@ -1,7 +1,5 @@
 package com.oti.team2.member.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oti.team2.member.dto.Developer;
 import com.oti.team2.member.dto.EmployeeList;
 import com.oti.team2.member.dto.Member;
 import com.oti.team2.member.dto.ProfileImg;
 import com.oti.team2.member.service.IMemberService;
-import com.oti.team2.srresource.dto.SrResourceOfDeveloper;
 import com.oti.team2.srresource.service.ISrResourceService;
 import com.oti.team2.util.Auth;
 
