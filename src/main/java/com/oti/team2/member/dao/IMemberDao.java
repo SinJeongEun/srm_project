@@ -7,9 +7,17 @@ import org.apache.ibatis.annotations.Param;
 import com.oti.team2.member.dto.Developer;
 import com.oti.team2.member.dto.Member;
 import com.oti.team2.member.dto.ProfileImg;
+import com.oti.team2.member.dto.Users;
 import com.oti.team2.util.pager.Pager;
 
 public interface IMemberDao {
+	
+	/**
+	 * 아이디 조회 후 있으면, member 객체 리턴하여 principal 객체를 위해 사용됨
+	 * @author 신정은
+	 */
+	public Users selectByMemberId(String memberId);
+	
 	/**
 	 * 멤버 타입별 총 행수 조회
 	 *@author : 신정은

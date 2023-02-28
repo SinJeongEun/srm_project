@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oti.team2.member.dao.IMemberDao">
+
+	<!-- 로그인시 멤버 객체 가져오기 -->
+	<select id="selectByMemberId" parameterType="string" resultType="users">
+		SELECT 
+			MEMBER_ID as memberId ,
+			PSWD as pswd ,
+			ENABLED as enabled ,
+			FLNM as flnm ,
+			MEMBER_TYPE as authority
+		FROM MEMBERS
+		WHERE MEMBER_ID=#{memberId}			
+	</select>
+	
    <!-- 고객/사원 총 행의 수 가져오기 -->
    <select id="countByMemberType" parameterType="string"
       resultType="int">
@@ -171,8 +184,8 @@
    <!-- 개발자 목록 조회 -->
    <select id="selectByDeptCd" parameterType="String" resultType="developer">
       SELECT 
-         MEMBER_ID as "empId",
-         FLNM as "flnm"
+         MEMBER_ID as empId,
+         FLNM as flnm
       FROM
          MEMBERS
       WHERE

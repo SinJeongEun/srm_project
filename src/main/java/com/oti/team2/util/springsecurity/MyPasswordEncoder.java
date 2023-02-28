@@ -1,4 +1,4 @@
-package com.oti.team2.util.springsequrity;
+package com.oti.team2.util.springsecurity;
 
 import java.util.HashMap;
 import java.util.Map;

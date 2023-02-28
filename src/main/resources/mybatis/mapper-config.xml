@@ -24,6 +24,6 @@
 		<typeAlias type="com.oti.team2.srinformationhistory.dto.SrHistoryListDto" alias="srHistoryListDto" />
 		<typeAlias type="com.oti.team2.progress.dto.Progress" alias="progress" />
 		<typeAlias type="com.oti.team2.srinformationhistory.dto.SrHistoryDetailDto" alias="srHistoryDetailDto" />
-		
+		<typeAlias type="com.oti.team2.member.dto.Users" alias="users"/>
 	</typeAliases> 
 </configuration>
