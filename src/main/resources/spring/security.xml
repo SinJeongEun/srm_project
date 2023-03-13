@@ -2,8 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-5.8.xsd
-      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<context:property-placeholder
+		location="classpath:oauth/application-oauth.properties" />
+
 
 	<!-- 보안 필터 체인 설정 - 로그인/로그아웃 -->
 	<security:http pattern="/resources/**" security="none" />
@@ -19,12 +27,12 @@
 			pattern="/join-employee" access="permitAll" />
 		<security:intercept-url pattern="/join"
 			access="permitAll" />
-		<security:intercept-url pattern="/join/check/{memberId}"
-			access="permitAll" />
+		<security:intercept-url
+			pattern="/join/check/{memberId}" access="permitAll" />
 		<security:intercept-url pattern="/**"
 			access="isAuthenticated()" />
 		<security:intercept-url pattern="/admin/*"
-			access="hasRole('ROLE_ADMIN')"/>
+			access="hasRole('ROLE_ADMIN')" />
 		<!-- 로그인/로그아웃 핸들러 -->
 		<security:form-login login-page="/loginForm"
 			username-parameter="memberId" password-parameter="pswd"
@@ -73,5 +81,20 @@
 		<constructor-arg ref="roleHierarchyImpl"/> </bean> <bean id="roleHierarchyImpl" 
 		class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl"> 
 		<property name="hierarchy"> <value> </value> </property> </bean> -->
-
+		
+	<!-- google Class Bean설정 추가 -->
+	<!-- 클라이언트ID와 보안비밀 세팅 -->
+	<bean id="googleConnectionFactory"
+		class="org.springframework.social.google.connect.GoogleConnectionFactory">
+		<constructor-arg value="384557297665-3n8abq0eana7g9igakohgfsiu1q57qh3.apps.googleusercontent.com" />
+		<constructor-arg value="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s" />
+	</bean>
+	<!-- 승인된 리디렉션 URI -->
+	<bean id="googleOAuth2Parameters"
+		class="org.springframework.social.oauth2.OAuth2Parameters">
+ 		<property name="scope"
+			value="http://localhost" /> 
+		<property name="redirectUri"
+			value="http://localhost/user/googleSignInCallback" />
+	</bean>
 </beans>

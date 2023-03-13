@@ -9,11 +9,19 @@
 <html>
 <head>
 <%@include file="/WEB-INF/views/fragments/header.jsp"%>
+<meta name="google-signin-client_id" content="384557297665-3n8abq0eana7g9igakohgfsiu1q57qh3.apps.googleusercontent.com">
 <script
 	src="${pageContext.request.contextPath}/resources/js/rememberId.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
-	
-</script>
+function onSignIn(googleUser) {
+	  var profile = googleUser.getBasicProfile();
+	  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	  console.log('Name: ' + profile.getName());
+	  console.log('Image URL: ' + profile.getImageUrl());
+	  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}
+	</script>
 <style>
 .modal-header {
 	background-color: linear-gradient(135deg, #92344B 10%, #F05F57 100%);
@@ -125,6 +133,14 @@
 				<div class="col-md-12">
 					<button type="submit" form="loginForm"
 						class="btn btn-oti btn-md btn-block waves-effect waves-light text-center m-b-20">로그인</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">google_url
+					<a href="${google_url}">구글 로그인</a>
+				</div>
+				<div class="col-md-6">google_url
+					<div class="g-signin2" data-onsuccess="onSignIn">aa</div>
 				</div>
 			</div>
 			<div class="row">
