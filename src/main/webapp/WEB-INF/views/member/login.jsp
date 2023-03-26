@@ -141,12 +141,17 @@
          </div>
          <%-- <div class="row">
             <div class="col-md-4">
+=======
+          <div class="row">
+            <div class="col-md-6">
+>>>>>>> branch 'main' of https://github.com/OTI-SRM/srm_project
                <a href="/google/login">
 	                <img width="180px;"
 	                  src="${pageContext.request.contextPath}/resources/oti_images/google.png"
 	                  alt="small-logo.png">
                   </a>
             </div>
+<<<<<<< HEAD
             <div class="col-md-4">
                <a href="/kakao/login">
 	                <img width="180px;"
@@ -162,6 +167,7 @@
                   </a>
             </div>
          </div> --%>
+         <div>
             <div class="row">
                <a href="/google/login">
 	                <img width="180px;"
@@ -183,6 +189,7 @@
 	                  alt="small-logo.png">
                   </a>
             </div>
+         </div> 
          <hr />
          <div class="row">
             <div class="col-md-10">
