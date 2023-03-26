@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-<title>404 고객용 에러페이지</title>
+<title>403 고객용 에러페이지</title>
 
 <!-- Google font -->
 <link href="https://fonts.googleapis.com/css?family=Kanit:200"

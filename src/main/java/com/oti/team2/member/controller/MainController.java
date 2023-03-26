@@ -262,4 +262,12 @@ public class MainController {
 		log.info(map);
 		return map;
 	}
+	/**
+	 * 403 접근 권한이 없다는 에러화면 제공
+	 * @author 신정은
+	 */
+	@GetMapping("/error/forbidden")
+	public String forbiddenErrorPage() {
+		return"error/forbidden";
+	}
 }

@@ -13,7 +13,11 @@
 		<!-- URL 권한 설정 -->
 		<security:intercept-url pattern="/google/*"
 			access="permitAll" />
-			<security:intercept-url pattern="/login/oauth2/google/*"
+			<security:intercept-url pattern="/login/oauth2/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/kakao/*"
+			access="permitAll" />
+		<security:intercept-url pattern="/naver/*"
 			access="permitAll" />
 			
 		<security:intercept-url pattern="/auth"
